@@ -25,7 +25,9 @@
       <li><a href=" ">Email</a></li> -->
     </ul>
 
-    <p class="sign_in">Admin Login</p>
+    <% if !user_signed_in? %>
+    <p class="sign_in"><%= link_to "Admin Login", new_user_session_path %></p>
+    <% end %>
   </div>
 
 
@@ -33,12 +35,13 @@
     <div id="header">
       <p> CHEESE BURGER </p>
     </div>
-      <div class="buttons">
-        <button class="button"><%= link_to "All Posts", root_path %></button>
-        <button class="button"><%= link_to "New Post", new_post_path %></button>
-        <button class="button">Log Out</button>
-      </div>
-
+    <% if user_signed_in? %>
+       <div class="buttons">
+         <button class="button"><%= link_to "New Post", new_post_path %></button>
+         <button class="button"><%= link_to "All Posts", root_path %></button>         
+         <button class="button">Log Out</button>
+       </div>
+     <% end %>
 
       <% flash.each do |name, msg| %>
       <%= content_tag(:div, msg, class: "alert") %>
