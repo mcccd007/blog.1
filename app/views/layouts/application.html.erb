@@ -32,7 +32,7 @@
   <div id="main_content">
     <div id="header">
       <p> CHEESE BURGER </p>
-
+    </div>
       <div class="buttons">
         <button class="button"><%= link_to "All Posts", root_path %></button>
         <button class="button"><%= link_to "New Post", new_post_path %></button>
@@ -44,8 +44,8 @@
       <%= content_tag(:div, msg, class: "alert") %>
       <% end %>
 
-      
+
       <%= yield %>
-    </div>
+
   </body>
   </html>
